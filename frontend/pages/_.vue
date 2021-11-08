@@ -6,6 +6,7 @@
       :blok="story.content"
       :is="story.content.component" />
   </section>
+  
 </template>
 
  
@@ -48,6 +49,8 @@ export default {
     return context.app.$storyapi.get(`cdn/stories/${fullSlug}`, {
       version: 'draft' // Set DEV of PROD version (untested)
     }).then((res) => {
+      console.log('##### STORYBLOCK DATA #####')
+      console.log(res.data)
       return res.data
     }).catch((res) => {
       if (!res.response) {

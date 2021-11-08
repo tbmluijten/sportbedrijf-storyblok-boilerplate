@@ -6,6 +6,7 @@
       :blok="blok"
       :is="blok.component" />
   </div>
+  
 </template>
  
 <script>
