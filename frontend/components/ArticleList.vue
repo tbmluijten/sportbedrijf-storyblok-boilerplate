@@ -1,7 +1,7 @@
 <template>
   <div class="article-block-items d-flex row" v-editable="blok">
       <!-- <pre>{{item}}</pre> -->
-      <div class="col-6" v-for="item in articles.slice(0, 8)" :key="item">
+      <div class="col-6" v-for="item in articles.slice(0, 8)" :key="item.id">
         <NuxtLink :to="item.full_slug" class="item" >
           <img :src="item.content.image" alt="Sportbedrijf image" />
           <h4>{{ item.name }}</h4>
@@ -33,8 +33,6 @@ export default {
   asyncData() {},
 
   created() {
-    console.log("createddd");
-    console.log("called???");
     var data = {
       version: "draft",
       starts_with: "posts",

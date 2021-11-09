@@ -36,10 +36,5 @@ export default {
 
 <style lang="scss" scoped>
   .row{
-    div{
-      &:nth-child(2){
-        background-color: red;
-      }
-    }
   }
 </style>

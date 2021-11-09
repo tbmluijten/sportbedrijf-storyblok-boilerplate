@@ -3,6 +3,7 @@
     <Navigation />
     <HeaderBackground />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 

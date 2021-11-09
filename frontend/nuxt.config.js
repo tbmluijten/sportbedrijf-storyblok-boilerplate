@@ -30,6 +30,7 @@ export default {
   plugins: [
     { src: '~/plugins/vue-social-share.js', mode: 'client' },
     { src: '~/plugins/vue-axios.js', mode: 'client' },
+    { src: '~/plugins/vue-moment.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
