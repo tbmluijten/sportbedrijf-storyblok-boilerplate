@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container" v-editable="blok">
     <div class="holder-articles mt-5 p-4">
-      <h1 class="mb-2 mt-0">{{stories[0].content.title}}</h1>
+      <h1 class="mb-2 mt-0">{{blok.title}}</h1>
       <div class="row article-content">
         <div class="col-12 col-lg-8">
-          <p class="bold">{{stories[0].content.subtitle}}</p>
-          {{stories[0].content.body}}
-          <div class="socials" v-if="stories[0].content.socials">
+          <p class="bold">{{blok.subtitle}}</p>
+          {{blok.body}}
+          <div class="socials" v-if="blok.socials">
             <div class="social-title">Artikel delen</div>
             <div class="holder-socials">
               <ShareNetwork network="facebook" title="Testtitle" description="testdescription" url="https://news.vuejs.org/issues/180" class="item"><div class="icon"></div></ShareNetwork>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-12 col-lg-4">
           <component
-            v-for="blok in stories[0].content.Sidebar"
+            v-for="blok in blok.Sidebar"
             :key="blok._uid"
             :blok="blok"
             :is="blok.component" 
@@ -35,6 +35,12 @@ export default {
   data () {
     return {
       story: { stories: {} }
+    }
+  },
+  props: {
+    blok: {
+      type: Object,
+      required: true
     }
   },
   mounted () {

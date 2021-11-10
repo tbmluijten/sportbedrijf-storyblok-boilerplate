@@ -1,6 +1,6 @@
 <template>
   <div class="article-block-items d-flex row" v-editable="blok">
-      <!-- <pre>{{item}}</pre> -->
+    
       <div class="col-6" v-for="item in articles.slice(0, 8)" :key="item.id">
         <NuxtLink :to="item.full_slug" class="item" >
           <img :src="item.content.image" alt="Sportbedrijf image" />
@@ -35,8 +35,9 @@ export default {
   created() {
     var data = {
       version: "draft",
-      starts_with: "posts",
+      starts_with: "news",
       token: process.env.STORYBLOK_TOKEN,
+      excluding_slugs: "news/,news/zwemmen/"
     };
     var config = {
       method: "get",
@@ -48,7 +49,7 @@ export default {
       params: data,
     };
     axios(config).then((response) => {
-      console.log(response);
+      // console.log(response);
       this.articles = response.data.stories;
     });
   },

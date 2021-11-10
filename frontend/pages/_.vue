@@ -1,10 +1,12 @@
 <template>
   <section>
+    <!-- <pre>{{story}}</pre> -->
     <component
       v-if="story.content.component"
       :key="story.content._uid"
       :blok="story.content"
       :is="story.content.component" />
+      
   </section>
   
 </template>
@@ -45,11 +47,11 @@ export default {
 
     // Use full slug path from Storyblok CMS pages
     const fullSlug = (context.route.path == '/' || context.route.path == '') ? 'home' : context.route.path
- 
+    console.log(fullSlug, '<--- COMPLETE SLUG')
     return context.app.$storyapi.get(`cdn/stories/${fullSlug}`, {
       version: 'draft' // Set DEV of PROD version (untested)
     }).then((res) => {
-      console.log('##### STORYBLOCK DATA #####')
+      console.log('##### STORYBLOCK')
       console.log(res.data)
       return res.data
     }).catch((res) => {
