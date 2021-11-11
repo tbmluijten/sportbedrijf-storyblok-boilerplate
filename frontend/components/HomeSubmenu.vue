@@ -44,6 +44,7 @@ export default {
 
 <style lang="scss" scoped>
 .article-block-menu {
+  margin-bottom: 48px;
   .article-item {
     position: relative;
     top: 0;

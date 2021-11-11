@@ -1,7 +1,6 @@
 <template>
   <div class="article-block-items d-flex row" v-editable="blok">
-    
-      <div class="col-6" v-for="item in articles.slice(0, 8)" :key="item.id">
+      <div :class="blok.per_row" v-for="item in articles.slice(0, 8)" :key="item.id">
         <NuxtLink :to="item.full_slug" class="item" >
           <img :src="item.content.image" alt="Sportbedrijf image" />
           <h4>{{ item.name }}</h4>
@@ -30,14 +29,34 @@ export default {
     console.log(this.story.content);
   },
 
-  asyncData() {},
+  asyncData(context) {
+    // let data = {
+    //   version: "draft",
+    //   starts_with: "news",
+    //   token: process.env.STORYBLOK_TOKEN,
+    //   excluding_slugs: "news/,news/zwemmen/,news/zwemmen/diploma/",
+    // };
+    // let config = {
+    //   method: "get",
+    //   url: `https://api.storyblok.com/v2/cdn/stories/`,
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //   },
+    //   params: data,
+    // };
+    // axios(config).then((response) => {
+    //   return response.data;
+    // });
+  },
 
   created() {
+    console.log(this.blok)
     var data = {
       version: "draft",
-      starts_with: "news",
+      starts_with: this.blok.article_folder,
       token: process.env.STORYBLOK_TOKEN,
-      excluding_slugs: "news/,news/zwemmen/,news/zwemmen/diploma/",
+      excluding_slugs: "news/,news/zwemmen/,news/zwemmen/diploma/,news/schaatsen/",
     };
     var config = {
       method: "get",
@@ -49,7 +68,7 @@ export default {
       params: data,
     };
     axios(config).then((response) => {
-      // console.log(response);
+      console.log(response);
       this.articles = response.data.stories;
     });
   },

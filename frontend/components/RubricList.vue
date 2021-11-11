@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .rubric-list {
+  padding-bottom: 24px;
   h5 {
   }
   ul {

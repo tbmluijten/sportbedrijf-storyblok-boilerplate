@@ -44,7 +44,7 @@ export default {
       version: "draft",
       starts_with: this.$route.params.pathMatch,
       token: process.env.STORYBLOK_TOKEN,
-      excluding_slugs: "news/,news/zwemmen/,news/zwemmen/diploma/,rubrics/sporter-in-beeld/",
+      excluding_slugs: "news/,news/zwemmen/,news/zwemmen/diploma/,rubrics/,rubrics/sporter-in-beeld/,agenda/,news/schaatsen/",
     };
     var config = {
       method: "get",
