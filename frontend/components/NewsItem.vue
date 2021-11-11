@@ -1,6 +1,7 @@
 <template>
   <div class="container" v-editable="blok">
     <div class="holder-articles mt-5 p-4">
+      <Breadcrumb />
       <h1 class="mb-2 mt-0">{{blok.title}}</h1>
       <div class="row article-content">
         <div class="col-12 col-lg-8">

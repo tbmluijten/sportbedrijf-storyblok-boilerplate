@@ -1,7 +1,7 @@
 <template>
   <div class="container" v-editable="blok">
     <div class="holder-articles  mt-5 p-4">
-      <h1>Nieuws</h1>
+      <h1>{{blok.title}}</h1>
       <div class="article-block-items d-flex row">
         <div class="col-4" v-for="item in articles.slice(0, 8)" :key="item.id">
           <NuxtLink :to="'/'+item.full_slug" class="item" >
@@ -38,6 +38,8 @@ export default {
 
   created() {
     console.log(this.$route.params.pathMatch)
+    //use this.$route.params.path match to check which post folder content has to come from
+    //excluding_slugs has to be manually updated to not scrape the landing pages
     var data = {
       version: "draft",
       starts_with: this.$route.params.pathMatch,
