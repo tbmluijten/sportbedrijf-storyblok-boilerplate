@@ -87,6 +87,8 @@ export default {};
 
 <style lang="scss" scoped>
 .footer {
+  background-color: white;
+  padding-top: 24px;
   .container {
     .row {
       font-family: $headingstack;

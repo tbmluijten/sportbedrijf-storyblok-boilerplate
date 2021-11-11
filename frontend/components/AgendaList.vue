@@ -3,11 +3,11 @@
     <h5 class="mb-3 pb-3">Agenda</h5>
     <ul class="m-0 p-0">
       <li class=" pb-3 mb-3" v-for="item in agenda.slice(0, 4)" :key="item.id">
-        <NuxtLink :to="item.path" class="d-flex align-items-start">
+        <NuxtLink :to="item.full_slug" class="d-flex align-items-start">
         <div class="date py-2">
-          <div class="day">{{ item.content.agenda_date | moment("DD") }}</div>
+          <div class="day">{{ item.content.date | moment("DD") }}</div>
           <div class="month">
-            {{ item.content.agenda_date | moment("MMM") }}
+            {{ item.content.date | moment("MMM") }}
           </div>
         </div>
         <div class="label py-1">{{ item.content.title }}</div>
@@ -36,18 +36,11 @@ export default {
   },
   created() {
     console.log(this.$route.params.pathMatch)
-    let tag = 'agenda'
-    if(this.$route.params.pathMatch == 'zwemmen'){
-        tag = 'zwemmen'
-    } else if(this.$route.params.pathMatch == 'schaatsen'){
-        tag = 'schaatsen'
-    }
-    console.log('with tag:', tag)
     var data = {
       version: "draft",
-      starts_with: "posts",
+      starts_with: "agenda/",
       token: process.env.STORYBLOK_TOKEN,
-      with_tag: tag
+      excluding_slugs: "agenda/",
     };
     var config = {
       method: "get",

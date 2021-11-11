@@ -37,7 +37,7 @@ export default {
       version: "draft",
       starts_with: "news",
       token: process.env.STORYBLOK_TOKEN,
-      excluding_slugs: "news/,news/zwemmen/"
+      excluding_slugs: "news/,news/zwemmen/,news/zwemmen/diploma/",
     };
     var config = {
       method: "get",
